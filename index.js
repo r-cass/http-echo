@@ -60,9 +60,16 @@ app.listen(
     HOST,
     () =>
         {
-            console.log(
-                `Http-echo is now running on http://${HOST}:${PORT}`
-            );
+            if (HOST === "0.0.0.0") {
+                console.log('Http-echo is now running on :');
+                console.log(`http://localhost:${PORT}`);
+                console.log(`http://127.0.0.1:${PORT}`);
+            }
+            else {
+                console.log(
+                    `Http-echo is now running on http://${HOST}:${PORT}`
+                );
+            }
         }
 );
 
